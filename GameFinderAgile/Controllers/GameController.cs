@@ -30,11 +30,14 @@ namespace GameFinderAgile.Controllers
                 int changeCount = await _context.SaveChangesAsync();
 
                 return Ok("Your Game was created");
+                
             }
             //The model is not valid,go ahead and reject it
             return BadRequest(ModelState);
 
         }
+
+       
 
     }
 }
