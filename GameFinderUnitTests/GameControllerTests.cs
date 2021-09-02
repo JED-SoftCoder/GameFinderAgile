@@ -16,7 +16,7 @@ namespace GameFinderUnitTests
         GameController _controller = new GameController();
        
         [TestMethod]
-        public void PostGame_ShouldGetNotNull()
+        public void PostGame_ShouldGetAreEqual()
         {
             _controller.Request = new HttpRequestMessage();
             Game newGame = new Game();
@@ -27,7 +27,6 @@ namespace GameFinderUnitTests
             newGame.PlayerRating = 10;
             newGame.ReleaseDate = new DateTime(1988, 10, 09);
             _context.Games.Add(newGame);
-            //Assert.IsNotNull(_context.Games.Find("Super Mario Bros 2"));
             var okResult = _controller.CreateGame(newGame);
             Assert.AreEqual(newGame, _context.Games.Find(newGame.Name));
         }
